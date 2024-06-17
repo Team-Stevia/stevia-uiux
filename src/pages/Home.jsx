@@ -1,6 +1,19 @@
 import '../styles/Home.css';
+import {useState} from 'react';
+import { BottomSheet } from 'react-spring-bottom-sheet';
+import 'react-spring-bottom-sheet/dist/style.css';
 
 const Home = () => {
+
+    const [isSheetOpen, setIsSheetOpen] = useState(false);
+    const openSheet = () => {
+        setIsSheetOpen(true);
+    };
+
+    const closeSheet = () => {
+        setIsSheetOpen(false);
+    };
+
     return(
         <div className="Home">
             <div className="s">
@@ -22,9 +35,17 @@ const Home = () => {
                 <p className="select-box-items">504</p>
                 <p className="select-box-items">513</p>
             </div>
-            <div className="key">
+            <div className="key" onClick={openSheet}>
                 <p className='key1'>key</p>
             </div>
+
+            <BottomSheet open={isSheetOpen} onDismiss={closeSheet}>
+                <div style={{ padding: '16px' }}>
+                    <h2>Bottom Sheet Content</h2>
+                    <p>This is a simple bottom sheet example.</p>
+                    <button onClick={closeSheet}>Close</button>
+                </div>
+            </BottomSheet>
         </div>
     );
 }

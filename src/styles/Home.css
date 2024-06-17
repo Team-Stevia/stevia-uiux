@@ -43,28 +43,18 @@
     font-size: 17px;
     font-style: revert;
     border-radius: 30px;
-
-    /*padding: 7vh 14vw ;*/
-    /*background-color: rgb(193, 199, 243);*/
-    /*font-size: 17px;*/
-    /*font-style: revert;*/
-    /*border-radius: 40px ;*/
 }
 
 .key {
     display: flex;
     justify-content: center;
-    /*background-color: black;*/
-    /*width: 200px;*/
-    /*height: 70px;*/
-    /*border-radius: 200px 200px 0px 0px;*/
 }
 
 .key1 {
-    background-color: #f3f3f3;
+    background-color: #6185E2;
     width: 200px;
-    height: 70px;
-    border-radius: 200px 200px 0px 0px;
+    height: 60px;
+    border-radius:70px 70px 0px 0px;
 }
 
 
@@ -84,4 +74,7 @@
     border-left: 5px solid black;
     border-bottom: 5px solid black;
     transform: rotate(-135deg);
+}
+.key_image{
+    position: absolute;
 }

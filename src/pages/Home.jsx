@@ -1,6 +1,13 @@
 import '../styles/Home.css';
+import { BottomSheet } from 'react-spring-bottom-sheet';
+import 'react-spring-bottom-sheet/dist/style.css';
+import useBottomSheet from '../hooks/useBottomSheet';
+import keyImage from "../assets/key.png"
 
 const Home = () => {
+
+    const { isSheetOpen, openSheet, closeSheet } = useBottomSheet();
+
     return(
         <div className="Home">
             <div className="s">
@@ -22,9 +29,17 @@ const Home = () => {
                 <p className="select-box-items">504</p>
                 <p className="select-box-items">513</p>
             </div>
-            <div className="key">
-                <p className='key1'>key</p>
+            <div className="key" onClick={openSheet}>
+                <p className='key1'></p>
+                 <img src={keyImage} alt="key" className='key_image' />
             </div>
+            <BottomSheet open={isSheetOpen} onDismiss={closeSheet}>
+                <div style={{ padding: '16px' }}>
+                    <h2>Bottom Sheet Content</h2>
+                    <p>This is a simple bottom sheet example.</p>
+                    <button onClick={closeSheet}>Close</button>
+                </div>
+            </BottomSheet>
         </div>
     );
 }

@@ -3,10 +3,15 @@ import { BottomSheet } from 'react-spring-bottom-sheet';
 import 'react-spring-bottom-sheet/dist/style.css';
 import useBottomSheet from '../hooks/useBottomSheet';
 import keyImage from "../assets/key.png"
+import {useNavigate} from "react-router-dom";
 
 const Home = () => {
-
     const { isSheetOpen, openSheet, closeSheet } = useBottomSheet();
+    const navigate = useNavigate();
+
+    const useHandleMove = () => {
+        navigate("/reservation");
+    }
 
     return(
         <div className="Home">
@@ -21,7 +26,7 @@ const Home = () => {
                 <button className='menu-items'>N6</button>
                 <div className="arrow2"></div>
             </div>
-            <div className="select-box">
+            <div className="select-box" onClick={useHandleMove}>
             <p className="select-box-items">506</p>
                 <p className="select-box-items">511</p>
                 <p className="select-box-items">512</p>

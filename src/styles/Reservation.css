@@ -16,8 +16,8 @@
     left: 20px;
     width: 20px;
     height: 20px;
-    border-left: 7px solid black;
-    border-bottom: 7px solid black;
+    border-left: 6px solid black;
+    border-bottom: 6px solid black;
     transform: rotate(45deg);
 }
 
@@ -34,7 +34,7 @@
 
 .reservation-location {
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     border-radius: 50px;
     background-color: white;
     height: 11vh;

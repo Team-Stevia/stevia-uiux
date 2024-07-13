@@ -19,14 +19,69 @@ const initialReservation = [
 ];
 
 
-const Reservation = () => {
+const Reservation = ({roomId}) => {
     const [reservation, setReservation] = useState(initialReservation);
+    const [roomNo, setRoomNo] = useState("");
+    const [roomImageUrl, setRoomImageUrl] = useState("");
+    const [buildingLocation, setBuildingLocation]= useState("");
+    const [buildingName, setBuildingName] = useState("");
     const navigate = useNavigate();
+
 
 
     const useHandleMove = () => {
         navigate("/");
     }
+
+    useEffect(() => {
+        const fetchData = async () => {
+
+            if (!roomId) {
+                console.error("roomId is not defined");
+                return;
+            }
+
+            try {
+                const response = await axios.get(`http://localhost:3003/timetables/${roomId}`); // 적절한 API 호출로 변경하세요
+                console.log(response);
+
+                const reservedTimes = response.data.reservedTime;
+                const roomImageUrl = response.data.roomImageUrl;
+                const roomNo = response.data.roomNo;
+                const building = response.data.buildingLocation;
+                const buildingName = response.data.buildingName;
+
+
+
+                console.log(reservedTimes, roomImageUrl);
+
+
+                const splitTimes = reservedTimes.split(',').map(Number);
+
+                console.log(splitTimes);
+
+                const updatedReservations = reservation.map(reservation => {
+                    if (splitTimes.includes(reservation.id)) {
+                        return {...reservation, reserved: false};
+                    } else {
+                        return reservation;
+                    }
+                });
+
+                setReservation(updatedReservations);
+                setRoomNo(roomNo);
+                setRoomImageUrl(roomImageUrl);
+                setBuildingLocation(building);
+                setBuildingName(buildingName);
+
+
+
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        fetchData();
+    }, [roomId]);
 
 
     const onUpdate = (targetId) => {
@@ -39,12 +94,12 @@ const Reservation = () => {
 
     return (
         <div className="reservation">
-            <div className="roomImg" alt="room" style={{backgroundImage: `url(${roomImg})`}}>
+            <div className="roomImg" alt="room" style={{backgroundImage: `url(${roomImg || roomImg})`}}>
                 <div className="arrow" onClick={useHandleMove}></div>
                 <div className="reservation-board">
                     <div className="reservation-location">
                             <img className="locationImg" src={location} alt="location"/>
-                            <p>한밭대학교 유성덕명캠퍼스자동화관<br/>N5 506</p>
+                            <p>한밭대학교 유성덕명캠퍼스 {buildingName}<br/>{buildingLocation} {roomNo}</p>
                     </div>
 
                     <div className="reservation-time">

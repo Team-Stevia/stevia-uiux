@@ -1,0 +1,91 @@
+{
+  "boards": [
+    {
+      "id": 1,
+      "buildingAndRoomList": {
+        "buildingLocation": "N3",
+        "roomList": [
+          {
+            "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9a",
+            "roomNo": 401
+          },
+          {
+            "roomId": "f1f8cb5c-1580-49c5-8502-412b75944d22",
+            "roomNo": 402
+          },
+          {
+            "roomId": "c3525220-19a0-477e-b9eb-c1e32d42b8b9",
+            "roomNo": 403
+          }
+        ]
+      },
+
+      "otherBuildingList": [
+        {
+          "roomId": "dd2533ed-c753-4015-b7ca-d7adca64a932",
+          "buildingLocation": "N5"
+        },
+        {
+          "roomId": "75d732eb-e442-40c7-91e0-54f7c00f659e",
+          "buildingLocation": "N4"
+        },
+        {
+          "roomId": "b58ee216-0991-40f7-a9dd-4a6ce3af9c33",
+          "buildingLocation": "N2"
+        },
+        {
+          "roomId": "4e09b6a2-ab0c-4f60-997c-9c169d471491",
+          "buildingLocation": "N6"
+        }
+      ],
+      "reservationInfo": {
+        "reservationStatus": false
+      }
+    }
+  ],
+
+  "buildingLocation": [
+    {
+      "roomId": "4e09b6a2-ab0c-4f60-997c-9c169d471491",
+      "buildingLocation": "N6",
+      "roomNo": 301,
+      "reservationRate": 30
+    },
+    {
+      "roomId": "6323e1e2-b900-430d-828d-22bf278b8d8a",
+      "buildingLocation": "N6",
+      "roomNo": 302,
+      "reservationRate": 0
+    },
+    {
+      "roomId": "37ef8f7c-19c7-43d6-aba1-00a25723d891",
+      "buildingLocation": "N6",
+      "roomNo": 303,
+      "reservationRate": 10
+    },
+    {
+      "roomId": "63685f42-e239-42c5-87a1-13960ac2ffac",
+      "buildingLocation": "N6",
+      "roomNo": 304,
+      "reservationRate": 50
+    },
+    {
+      "roomId": "432f7814-9b17-4678-b0bd-5bb7b48c9306",
+      "buildingLocation": "N6",
+      "roomNo": 305,
+      "reservationRate": 80
+    }
+  ],
+
+
+  "timetables": [
+    {
+      "id": "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9a",
+      "buildingLocation": "N3",
+      "buildingName": "기계관",
+      "roomNo": 401,
+      "roomImageUrl": "http://[도메인 명]/room-images/N3-401.jpeg",
+      "reservedTime": "9,10,11"
+    }
+  ]
+}

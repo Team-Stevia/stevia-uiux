@@ -98,8 +98,8 @@ const Reservation = ({roomId}) => {
                 <div className="arrow" onClick={useHandleMove}></div>
                 <div className="reservation-board">
                     <div className="reservation-location">
-                            <img className="locationImg" src={location} alt="location"/>
-                            <p>한밭대학교 유성덕명캠퍼스 {buildingName}<br/>{buildingLocation} {roomNo}</p>
+                        <img className="locationImg" src={location} alt="location"/>
+                        <p>한밭대학교 유성덕명캠퍼스 {buildingName}<br/>{buildingLocation} {roomNo}</p>
                     </div>
 
                     <div className="reservation-time">

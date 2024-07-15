@@ -1,0 +1,36 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "studentId": "test1",
+      "email": "testuser1@gmail.com",
+      "password": "1111"
+    }
+  ],
+  "boards": [
+    {
+      "buildingAndRoomList": {
+        "buildingLocation": "N3",
+        "roomList": [
+          {
+            "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9a",
+            "roomNo": 401
+          },
+          {
+            "roomId": "f1f8cb5c-1580-49c5-8502-412b75944d22",
+            "roomNo": 402
+          },
+          {
+            "roomId": "c3525220-19a0-477e-b9eb-c1e32d42b8b9",
+            "roomNo": 403
+          }
+        ]
+      },
+      "otherBuildingList": [ "N3", "N4", "N5", "S3" ]
+    }
+  ],
+  "access":
+  {
+    "accessToken": "newaccesstoken"
+  }
+}

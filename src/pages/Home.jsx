@@ -4,12 +4,10 @@ import 'react-spring-bottom-sheet/dist/style.css';
 import useBottomSheet from '../hooks/useBottomSheet';
 import keyImage from "../assets/key.png"
 import {useNavigate} from "react-router-dom";
-import Reservation from "./Reservation.jsx";
 
 const Home = () => {
     const { isSheetOpen, openSheet, closeSheet } = useBottomSheet();
     const navigate = useNavigate();
-    const roomId = "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9a"
 
     const useHandleMove = () => {
         navigate("/reservation");
@@ -21,7 +19,6 @@ const Home = () => {
                 <b>Please choose a place!!</b>
             </div>
             <div className="menu">
-                {/*<Reservation roomId={roomId} />*/}
                 <div className="arrow1"></div>
                 <button className='menu-items'>N3</button>
                 <button className='menu-items'>N4</button>

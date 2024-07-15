@@ -22,6 +22,10 @@
 
 }
 
+.form-container {
+    grid-area: d; /* .student-id와 .password 사이의 공간에 배치 */
+}
+
 .background-img {
     margin-top: 10rem;
     margin-bottom: 10rem;
@@ -36,7 +40,7 @@
 
 }
 
-.email {
+.student-id {
     grid-area: b;
     /*align-items: end;*/
 }
@@ -59,14 +63,14 @@
     align-items: center;
 }
 
-input[type="email"],
+input[type="student-id"],
 input[type="password"] {
     width: 220px;
     height: 17px;
     padding: 8px;
     border: 1px solid #ccc;
     background-color: #DDE1FA;
-    border-radius: 30px;
+    border-radius: 10px;
 }
 
 .find-password{

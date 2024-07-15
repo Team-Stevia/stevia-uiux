@@ -19,7 +19,6 @@
           }
         ]
       },
-
       "otherBuildingList": [
         {
           "roomId": "dd2533ed-c753-4015-b7ca-d7adca64a932",
@@ -43,7 +42,6 @@
       }
     }
   ],
-
   "buildingLocation": [
     {
       "roomId": "4e09b6a2-ab0c-4f60-997c-9c169d471491",
@@ -76,8 +74,6 @@
       "reservationRate": 80
     }
   ],
-
-
   "timetables": [
     {
       "id": "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9a",

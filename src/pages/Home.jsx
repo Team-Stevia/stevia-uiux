@@ -1,19 +1,20 @@
 import '../styles/Home.css';
-import { BottomSheet } from 'react-spring-bottom-sheet';
+import {BottomSheet} from 'react-spring-bottom-sheet';
 import 'react-spring-bottom-sheet/dist/style.css';
 import useBottomSheet from '../hooks/useBottomSheet';
 import keyImage from "../assets/key.png"
 import {useNavigate} from "react-router-dom";
+import BottomSheetContent from "../components/BottomSheetContent.jsx";
 
 const Home = () => {
-    const { isSheetOpen, openSheet, closeSheet } = useBottomSheet();
+    const {isSheetOpen, openSheet, closeSheet} = useBottomSheet();
     const navigate = useNavigate();
 
     const useHandleMove = () => {
         navigate("/reservation");
     }
 
-    return(
+    return (
         <div className="Home">
             <div className="s">
                 <b>Please choose a place!!</b>
@@ -27,7 +28,7 @@ const Home = () => {
                 <div className="arrow2"></div>
             </div>
             <div className="select-box" onClick={useHandleMove}>
-            <p className="select-box-items">506</p>
+                <p className="select-box-items">506</p>
                 <p className="select-box-items">511</p>
                 <p className="select-box-items">512</p>
                 <p className="select-box-items">505</p>
@@ -36,13 +37,11 @@ const Home = () => {
             </div>
             <div className="key" onClick={openSheet}>
                 <p className='key1'></p>
-                 <img src={keyImage} alt="key" className='key_image' />
+                <img src={keyImage} alt="key" className='key_image'/>
             </div>
             <BottomSheet open={isSheetOpen} onDismiss={closeSheet}>
-                <div style={{ padding: '16px' }}>
-                    <h2>Bottom Sheet Content</h2>
-                    <p>This is a simple bottom sheet example.</p>
-                    <button onClick={closeSheet}>Close</button>
+                <div style={{padding: '16px'}}>
+                    <BottomSheetContent closeSheet={closeSheet}/>
                 </div>
             </BottomSheet>
         </div>

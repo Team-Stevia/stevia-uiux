@@ -5,6 +5,7 @@ import boardReducer from "../feature/slice/boardSlice";
 const store = configureStore({
     reducer: {
         auth: authReducer,
+        boards: boardReducer,
     },
     devTools: process.env.NODE_ENV !== 'production',
 });

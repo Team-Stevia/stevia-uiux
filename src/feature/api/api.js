@@ -30,3 +30,23 @@ export const refreshAccessToken = async dispatch => {
         throw error;
     }
 };
+
+//게시판 데이터 요청
+export const fetchBoards = async (accessToken) => {
+    try {
+
+        //액세스 토큰 만료시 재발급 요청
+        if (!accessToken) {
+            await refreshAccessToken();
+        }
+    //테스트용 json-server 사용시 /api 경로 제거
+        const response = await apiClient.get('api/boards', {
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+            },
+        });
+        return response.data;
+    } catch (error) {
+        throw new Error('Failed to fetch boards');
+    }
+};

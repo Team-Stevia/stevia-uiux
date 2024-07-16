@@ -1,47 +1,48 @@
 {
   "boards": [
     {
-      "id": 1,
-      "buildingAndRoomList": {
-        "buildingLocation": "N3",
-        "roomList": [
-          {
-            "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9a",
-            "roomNo": 401
-          },
-          {
-            "roomId": "f1f8cb5c-1580-49c5-8502-412b75944d22",
-            "roomNo": 402
-          },
-          {
-            "roomId": "c3525220-19a0-477e-b9eb-c1e32d42b8b9",
-            "roomNo": 403
-          }
-        ]
-      },
-      "otherBuildingList": [
+      "buildingAndRoomList": [
         {
-          "roomId": "dd2533ed-c753-4015-b7ca-d7adca64a932",
-          "buildingLocation": "N5"
-        },
-        {
-          "roomId": "75d732eb-e442-40c7-91e0-54f7c00f659e",
-          "buildingLocation": "N4"
-        },
-        {
-          "roomId": "b58ee216-0991-40f7-a9dd-4a6ce3af9c33",
-          "buildingLocation": "N2"
-        },
-        {
-          "roomId": "4e09b6a2-ab0c-4f60-997c-9c169d471491",
-          "buildingLocation": "N6"
+          "buildingLocation": "N3",
+          "roomList": [
+            {
+              "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9a",
+              "roomNo": 401,
+              "reservationRate": 30
+            },
+            {
+              "roomId": "f1f8cb5c-1580-49c5-8502-412b75944d22",
+              "roomNo": 402,
+              "reservationRate": 50
+            },
+            {
+              "roomId": "c3525220-19a0-477e-b9eb-c1e32d42b8b9",
+              "roomNo": 403,
+              "reservationRate": 10
+            }
+          ]
         }
       ],
+      "otherBuildingList": [
+        "N3",
+        "N4",
+        "N5",
+        "S3",
+        "S7",
+        "S8",
+        "S10",
+        "N11"
+      ],
       "reservationInfo": {
-        "reservationStatus": false
+        "name": "스테비아",
+        "buildingLocation": "N3",
+        "roomNo": 401,
+        "usageTime": "9,10,11",
+        "reservationStatus": true
       }
     }
   ],
+
   "buildingLocation": [
     {
       "roomId": "4e09b6a2-ab0c-4f60-997c-9c169d471491",

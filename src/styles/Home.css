@@ -12,15 +12,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 7px;
     box-sizing: border-box;
 }
 
 
 .menu-items {
+    position: relative;
+
+    display: flex;
+    gap: 5px;
     padding: 10px 25px;
     font-size: 0.8rem;
-
 }
 
 
@@ -38,8 +40,6 @@
 
 .select-box-items {
     padding: 60px 66px;
-
-    background-color: rgb(193, 199, 243);
     font-size: 17px;
     font-style: revert;
     border-radius: 30px;

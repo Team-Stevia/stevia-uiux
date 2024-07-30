@@ -18,6 +18,11 @@
             {
               "roomId": "c3525220-19a0-477e-b9eb-c1e32d42b8b9",
               "roomNo": 403,
+              "reservationRate": 30
+            },
+            {
+              "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9b",
+              "roomNo": 404,
               "reservationRate": 10
             }
           ]

@@ -35,11 +35,7 @@ const Home = () => {
                 const roomList = buildingAndRoomList[0].roomList;
                 const reservationStatus = res.data[0].reservationInfo.reservationStatus;
 
-
-                console.log(roomList);
-                console.log(buildingLocation);
-                console.log(otherBuildingList);
-                console.log(reservationStatus);
+                console.log(res);
 
 
                 setOtherBuildingList(otherBuildingList);
@@ -63,7 +59,7 @@ const Home = () => {
     const renderBuildingList = () => {
         const start = currentPage * buildingsPerPage
         const end = start + buildingsPerPage;
-        const currentBuildingList = otherBuildingList.slice(start, end);
+        let currentBuildingList = otherBuildingList.slice(start, end);
 
         return currentBuildingList.map((building, index) => (
             <button key={index} className="menu-items">
@@ -71,6 +67,21 @@ const Home = () => {
             </button>
         ));
     }
+
+    /* 상단바 왼쪽 화살표 이벤트 */
+    const handlePrevPage = () => {
+        setCurrentPage(prevPage => Math.max(prevPage - 1, 0))
+    }
+
+    /* 상단바 오른쪽 화살표 이벤트 */
+    const handleNextPage = () => {
+        setCurrentPage(prevPage => {
+            const nextPage = prevPage + 1;
+            const totalPages = Math.ceil(otherBuildingList.length / buildingsPerPage);
+            return nextPage >= totalPages ? 0 : nextPage;
+        })
+    }
+
 
     const renderRoomList = () => {
         return roomsList.map((room) => {
@@ -82,7 +93,8 @@ const Home = () => {
             else bgColor = 'red';
 
             return (
-                <p key={room.roomId} className="select-box-items" style={{backgroundColor: bgColor}}>
+                <p key={room.roomId} className="select-box-items" style={{backgroundColor: bgColor}}
+                   onClick={useHandleMove}>
                     {room.roomNo}
                 </p>
             );
@@ -96,19 +108,15 @@ const Home = () => {
             </div>
             <div className="menu">
                 <div className="arrow1"
-                     onClick={() => setCurrentPage(prevPage => Math.max(prevPage - 1, 0))}
-                     disabled={currentPage === 0}>
+                     onClick={handlePrevPage}>
                 </div>
                 <div id="buildingList" className="menu-items">
                     {renderBuildingList()}
                 </div>
-                <div className="arrow2"
-                     onClick={() => setCurrentPage(prevPage => Math.min(prevPage + 1, Math.floor(otherBuildingList.length / buildingsPerPage)))}
-                     disabled={(currentPage + 1) * buildingsPerPage >= otherBuildingList.length}
-                >
+                <div className="arrow2" onClick={handleNextPage}>
                 </div>
             </div>
-            <div className="select-box" onClick={useHandleMove}>
+            <div className="select-box">
                 {renderRoomList()}
             </div>
             <div className="key" onClick={openSheet}>

@@ -18,6 +18,11 @@
             {
               "roomId": "c3525220-19a0-477e-b9eb-c1e32d42b8b9",
               "roomNo": 403,
+              "reservationRate": 30
+            },
+            {
+              "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9b",
+              "roomNo": 404,
               "reservationRate": 10
             }
           ]
@@ -39,40 +44,45 @@
         "roomNo": 401,
         "usageTime": "9,10,11",
         "reservationStatus": true
-      }
+      },
+      "id": "4671"
     }
   ],
-
   "buildingLocation": [
     {
       "roomId": "4e09b6a2-ab0c-4f60-997c-9c169d471491",
       "buildingLocation": "N6",
       "roomNo": 301,
-      "reservationRate": 30
+      "reservationRate": 30,
+      "id": "227e"
     },
     {
       "roomId": "6323e1e2-b900-430d-828d-22bf278b8d8a",
       "buildingLocation": "N6",
       "roomNo": 302,
-      "reservationRate": 0
+      "reservationRate": 0,
+      "id": "0636"
     },
     {
       "roomId": "37ef8f7c-19c7-43d6-aba1-00a25723d891",
       "buildingLocation": "N6",
       "roomNo": 303,
-      "reservationRate": 10
+      "reservationRate": 10,
+      "id": "7113"
     },
     {
       "roomId": "63685f42-e239-42c5-87a1-13960ac2ffac",
       "buildingLocation": "N6",
       "roomNo": 304,
-      "reservationRate": 50
+      "reservationRate": 50,
+      "id": "da2e"
     },
     {
       "roomId": "432f7814-9b17-4678-b0bd-5bb7b48c9306",
       "buildingLocation": "N6",
       "roomNo": 305,
-      "reservationRate": 80
+      "reservationRate": 80,
+      "id": "6beb"
     }
   ],
   "timetables": [
@@ -83,6 +93,19 @@
       "roomNo": 401,
       "roomImageUrl": "http://[도메인 명]/room-images/N3-401.jpeg",
       "reservedTime": "9,10,11"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "studentId": "test1",
+      "email": "testuser1@gmail.com",
+      "password": "1111"
+    },
+    {
+      "id": "db62",
+      "studentId": "test1",
+      "password": "1111"
     }
   ]
 }

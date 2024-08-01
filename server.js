@@ -18,7 +18,7 @@ server.post('/users', (req, res) => {
 
     if (user) {
         // 로그인 성공 시 JWT 토큰 생성
-        const accessToken = jwt.sign({studentId: user.studentId}, secretKey, {expiresIn: '1m'});
+        const accessToken = jwt.sign({studentId: user.studentId}, secretKey, {expiresIn: '1h'});
         const refreshToken = jwt.sign({
             studentId: user.studentId,
             type: "refresh"

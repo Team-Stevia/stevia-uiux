@@ -21,16 +21,6 @@ const authSlice = createSlice({
         status: 'idle',
         error: null,
     },
-    reducers: {
-        logout: (state) => {
-            state.accessToken = null;
-            state.refreshToken = null;
-        },
-        setAccessToken: (state, action) => {
-            state.accessToken = action.payload;
-        },
-    },
-
     extraReducers: (builder) => {
         builder
             .addCase(login.pending, (state) => {

@@ -21,7 +21,47 @@
               "reservationRate": 30
             },
             {
-              "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9b",
+              "roomId": "2b17f4a-3cb4-4a77-b0a5-78f3db9d6b9b",
+              "roomNo": 404,
+              "reservationRate": 10
+            },
+            {
+              "roomId": "2b817f4a-3cb4-4a7-b0a5-78f3db9d6b9a",
+              "roomNo": 401,
+              "reservationRate": 30
+            },
+            {
+              "roomId": "f1f8cb5c-1580-49c5-8502-412b7594422",
+              "roomNo": 402,
+              "reservationRate": 50
+            },
+            {
+              "roomId": "c3525220-19a0-47e-b9eb-c1e32d42b8b9",
+              "roomNo": 403,
+              "reservationRate": 30
+            },
+            {
+              "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3db96b9b",
+              "roomNo": 404,
+              "reservationRate": 10
+            },
+            {
+              "roomId": "2b817f4a-3cb4-4a77-b0a5-7f3db9d6b9a",
+              "roomNo": 401,
+              "reservationRate": 30
+            },
+            {
+              "roomId": "f1f8cb5c-1580-4c5-8502-412b75944d22",
+              "roomNo": 402,
+              "reservationRate": 50
+            },
+            {
+              "roomId": "c3525220-19a0-477e-b9eb-c1e32d428b9",
+              "roomNo": 403,
+              "reservationRate": 30
+            },
+            {
+              "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3dbd6b9b",
               "roomNo": 404,
               "reservationRate": 10
             }

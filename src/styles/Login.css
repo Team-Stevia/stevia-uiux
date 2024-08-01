@@ -9,8 +9,7 @@
         'b'
         'c'
         'd'
-        'e'
-;
+        'e';
     place-items: end center;
     justify-content: center;
     /*justify-items: center;*/
@@ -18,7 +17,7 @@
     /*height: 100%;*/
     /*margin: 0 auto;*/
     /*border-radius: 40px;*/
-    grid-gap: 10px ;
+    grid-gap: 10px;
 
 }
 
@@ -36,12 +35,12 @@
 
 }
 
-.email {
+.student_id {
     grid-area: b;
     /*align-items: end;*/
 }
 
-.password{
+.password {
     grid-area: c;
     justify-items: center;
     align-self: start;
@@ -59,7 +58,7 @@
     align-items: center;
 }
 
-input[type="email"],
+input[type="text"],
 input[type="password"] {
     width: 220px;
     height: 17px;
@@ -69,7 +68,7 @@ input[type="password"] {
     border-radius: 30px;
 }
 
-.find-password{
+.find-password {
     place-items: center end;
     color: #97B4D9;
     grid-area: d;

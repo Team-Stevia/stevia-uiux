@@ -18,7 +18,7 @@ server.post('/users', (req, res) => {
 
     if (user) {
         // 로그인 성공 시 JWT 토큰 생성
-        const accessToken = jwt.sign({studentId: user.studentId}, secretKey, {expiresIn: '1h'});
+        const accessToken = jwt.sign({studentId: user.studentId}, secretKey, {expiresIn: '1m'});
         const refreshToken = jwt.sign({
             studentId: user.studentId,
             type: "refresh"
@@ -27,16 +27,6 @@ server.post('/users', (req, res) => {
         res.json({accessToken, refreshToken});
     } else {
         res.status(401).json({error: 'Invalid credentials'});
-    }
-});
-
-server.get('/boards', async (req, res) => {
-    try {
-        const boardsData = router.db.get('/boards').value();
-        res.json(boardsData);
-    } catch (error) {
-        console.error('Failed to read db.json:', error);
-        res.status(500).json({ message: 'Internal server error' });
     }
 });
 

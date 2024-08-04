@@ -10,7 +10,6 @@ export const loginUser = async ({studentId, password}) => {
     try {
         //테스트용 json-server 사용시 /api 경로 제거
         const response = await apiClient.post('/users', {studentId, password});
-        console.log(response.data);
         return response.data;
     } catch (error) {
         throw new Error('Failed to login');

@@ -7,6 +7,7 @@ import {useNavigate} from "react-router-dom";
 import BottomSheetContent from "../components/BottomSheetContent.jsx";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import LogoutButton from "../components/LogoutButton.jsx";
 
 const apiClient = axios.create({
     baseURL: 'http://localhost:3003',
@@ -34,9 +35,6 @@ const Home = () => {
                 const buildingLocation = buildingAndRoomList[0].buildingLocation;
                 const roomList = buildingAndRoomList[0].roomList;
                 const reservationStatus = res.data[0].reservationInfo.reservationStatus;
-
-                console.log(res);
-
 
                 setOtherBuildingList(otherBuildingList);
                 setRoomList(roomList);
@@ -118,6 +116,7 @@ const Home = () => {
             </div>
             <div className="select-box">
                 {renderRoomList()}
+                <LogoutButton/>
             </div>
             <div className="key" onClick={openSheet}>
                 <p className='key1'></p>

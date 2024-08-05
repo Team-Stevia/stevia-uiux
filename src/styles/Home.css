@@ -37,6 +37,8 @@
     align-items: center;
     gap: 10px;
     padding-bottom: 60px;
+    overflow-y: auto;
+    height: 70vh;
 }
 
 

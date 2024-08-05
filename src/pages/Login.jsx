@@ -60,5 +60,4 @@ const Login = () => {
     );
 };
 
-export default Login;ㅍ
-        <div className="background-img" style={{ backgroundImage: `url(${background})` }}>
+export default Login;

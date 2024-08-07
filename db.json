@@ -147,5 +147,6 @@
       "studentId": "test1",
       "password": "1111"
     }
-  ]
+  ],
+  "reservations": []
 }

@@ -30,6 +30,29 @@ server.post('/users', (req, res) => {
     }
 });
 
+
+server.get('/boards/:buildingLocation', (req, res) => {
+    const {buildingLocation} = req.params;
+    const rawToken = req.headers['authorization']; // rawToken: Bearer amsdofjasodfqomajdofas
+    console.log("인증 토큰" + rawToken);
+
+    if (!rawToken) {
+        return res.status(401).json({error: 'Access token is missing'});
+    }
+
+    const boards = router.db.get('boards').value();
+
+    const location = boards.find(board => board.buildingLocation === buildingLocation);
+
+    if (location) {
+        res.json(location.roomList);
+        console.log(location.roomList);
+    } else {
+        console.error('Location not found');
+    }
+});
+
+
 server.use(router);
 
 server.listen(3003, () => {

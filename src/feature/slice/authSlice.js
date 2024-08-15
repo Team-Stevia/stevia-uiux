@@ -25,7 +25,11 @@ const authSlice = createSlice({
     reducers: {
         logout: (state) => {
             state.accessToken = null;
+            state.refreshAccessToken = null;
         },
+        setAccessToken: (state, action) => {
+            state.accessToken = action.payload;
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -42,10 +46,7 @@ const authSlice = createSlice({
                 state.error = action.error.message; // 실패 시 에러 메시지 설정
             });
     },
-
-
 });
 
-// export default persistedReducer;
 export default authSlice.reducer;
-export const {logout} = authSlice.actions;
+export const {logout, setAccessToken} = authSlice.actions;

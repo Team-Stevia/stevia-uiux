@@ -29,42 +29,49 @@
     font-size: 0.8rem;
 }
 
+.bar {
+    margin: 0px;
+    padding: 6px 5px;
+    border-radius: 50px;
+}
 
 .select-box {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 15px;
     gap: 10px;
-    padding-bottom: 60px;
+    justify-content: center;
+    align-items: start;
+
     overflow-y: auto;
-    height: 70vh;
+    height: 60vh;
+    position: relative;
+
 }
 
 
 .select-box-items {
-    padding: 60px 40px;
-    font-size: 17px;
+    padding: 25px 15px; /* padding 수정으로 간격 조절 */
+    font-size: 14px;
+    text-align: center;
+
     font-weight: bold;
-    top: 0;
-    font-style: revert;
     border-radius: 30px;
-    flex: 0 0 calc(25% - 20px);
+    margin: 0;
+
 }
 
-
-.reservation-bar {
-    width: 12px;
-    height: 70px;
-    background-color: #ffe6e6;
-    border-radius: 5px;
+.logout {
     position: fixed;
+    bottom: 60px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
 }
-
 
 .key {
     position: fixed;
-    bottom: -17px;
+    bottom: -16px;
     left: 0;
     right: 0;
     display: flex;

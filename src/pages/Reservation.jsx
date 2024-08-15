@@ -3,23 +3,13 @@ import location from "../assets/location.png";
 import done from "../assets/done.png";
 import "../styles/Reservation.css"
 import {useEffect, useState} from "react";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
+import initialReservation from "../../src/utils/ReservationTime.js";
 
 
-const initialReservation = [
-    {id: 9, time: "09:00 ~ 10:00", reserved: true},
-    {id: 10, time: "10:00 ~ 11:00", reserved: true},
-    {id: 11, time: "11:00 ~ 12:00", reserved: true},
-    {id: 12, time: "12:00 ~ 13:00", reserved: true},
-    {id: 13, time: "13:00 ~ 14:00", reserved: true},
-    {id: 14, time: "14:00 ~ 15:00", reserved: true},
-    {id: 15, time: "15:00 ~ 16:00", reserved: true},
-    {id: 16, time: "17:00 ~ 18:00", reserved: true},
-];
-
-
-const Reservation = ({roomId}) => {
+const Reservation = () => {
+    const {roomId} = useParams();
     const [reservation, setReservation] = useState(initialReservation);
     const [roomNo, setRoomNo] = useState("");
     const [roomImageUrl, setRoomImageUrl] = useState("");
@@ -35,16 +25,13 @@ const Reservation = ({roomId}) => {
 
     useEffect(() => {
         const fetchData = async () => {
-
             if (!roomId) {
                 console.error("roomId is not defined");
                 return;
             }
 
             try {
-                const response = await axios.get(`http://localhost:3003/timetables/${roomId}`); // 적절한 API 호출로 변경하세요
-                console.log(response);
-
+                const response = await axios.get(`http://localhost:3003/timetables/${roomId}`);
                 const reservedTimes = response.data.reservedTime;
                 const roomImageUrl = response.data.roomImageUrl;
                 const roomNo = response.data.roomNo;
@@ -52,14 +39,7 @@ const Reservation = ({roomId}) => {
                 const buildingName = response.data.buildingName;
 
 
-
-                console.log(reservedTimes, roomImageUrl);
-
-
                 const splitTimes = reservedTimes.split(',').map(Number);
-
-                console.log(splitTimes);
-
                 const updatedReservations = reservation.map(reservation => {
                     if (splitTimes.includes(reservation.id)) {
                         return {...reservation, reserved: false};

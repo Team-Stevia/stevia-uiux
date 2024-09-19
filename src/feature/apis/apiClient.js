@@ -19,7 +19,7 @@ apiClient.interceptors.request.use(
         if (accessToken) {
             config.headers.Authorization = `Bearer ${accessToken}`;
         }
-
+        // console.log('Request Headers:', config.headers); // Authorization 헤더 출력
         return config;
     },
     (error) => {

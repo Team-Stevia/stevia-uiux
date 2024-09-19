@@ -64,6 +64,11 @@
     font-size: 1.2rem;
 }
 
+.done-button {
+    width: 70%;
+    height: 70%;
+}
+
 .reservation-time {
     background-color: rgba(192, 200, 248, 1);
     display: flex;

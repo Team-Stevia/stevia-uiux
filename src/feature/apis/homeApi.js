@@ -19,3 +19,18 @@ export const updateBoardData = async (buildingLocation) => {
         throw error;
     }
 }
+
+// export const fetchKey = async () => {
+//     try {
+//         const response = await apiClient.get(`/keys`);
+//         return response.data;
+//     }
+// }
+//
+// export const updatedKey = async (keyStatus) => {
+//     try {
+//         const response = await apiClient.patch(`/keys`);
+//     } catch {
+//         console.error('Failed to update board', error);
+//     }
+// }

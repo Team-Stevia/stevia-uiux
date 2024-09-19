@@ -11,57 +11,57 @@
               "reservationRate": 30
             },
             {
-              "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9a",
+              "roomId": "2b81f4a-3cb4-4a77-b0a5-78f3db9d6b9a",
               "roomNo": 402,
               "reservationRate": 50
             },
             {
-              "roomId": "c3525220-19a0-477e-b9eb-c1e32d42b8b9",
+              "roomId": "c3525220-19a0-477e-beb-c1e32d42b8b9",
               "roomNo": 403,
               "reservationRate": 30
             },
             {
-              "roomId": "2b17f4a-3cb4-4a77-b0a5-78f3db9d6b9b",
+              "roomId": "2b174a-3cb4-a77-b0a5-78f3db9d6b9b",
               "roomNo": 404,
               "reservationRate": 10
             },
             {
-              "roomId": "2b817f4a-3cb4-4a7-b0a5-78f3db9d6b9a",
+              "roomId": "2b817f4a-b4-4a7-b0a5-78f3db9d6b9a",
               "roomNo": 401,
               "reservationRate": 30
             },
             {
-              "roomId": "f1f8cb5c-1580-49c5-8502-412b7594422",
+              "roomId": "f1f8cb5c-1580-49c5-8502-412b74422",
               "roomNo": 402,
               "reservationRate": 50
             },
             {
-              "roomId": "c3525220-19a0-47e-b9eb-c1e32d42b8b9",
+              "roomId": "c35220-19a0-47e-b9eb-c1e32d42b8b9",
               "roomNo": 403,
               "reservationRate": 30
             },
             {
-              "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3db96b9b",
+              "roomId": "2b817f4a-34-4a77-b0a5-78f3db96b9b",
               "roomNo": 404,
               "reservationRate": 10
             },
             {
-              "roomId": "2b817f4a-3cb4-4a77-b0a5-7f3db9d6b9a",
+              "roomId": "2b817f4a-3cb4-4a77-b05-7f3db9d6b9a",
               "roomNo": 401,
               "reservationRate": 30
             },
             {
-              "roomId": "f1f8cb5c-1580-4c5-8502-412b75944d22",
+              "roomId": "f1f8cb5c-1580-4c5-8502-412b754d22",
               "roomNo": 402,
               "reservationRate": 50
             },
             {
-              "roomId": "c3525220-19a0-477e-b9eb-c1e32d428b9",
+              "roomId": "c3525220-19a0-477e-9eb-c1e32d428b9",
               "roomNo": 403,
               "reservationRate": 30
             },
             {
-              "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3dbd6b9b",
+              "roomId": "2b817f4a-3cb4-4a7-b0a5-78f3dbd6b9b",
               "roomNo": 404,
               "reservationRate": 10
             }
@@ -110,52 +110,52 @@
       "buildingLocation": "N3",
       "roomList": [
         {
-          "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9a",
+          "roomId": "2b817f4a-3cb4-4a77-b0a-78f3db9d6b9a",
           "roomNo": 401,
           "reservationRate": 30
         },
         {
-          "roomId": "2b817f4a-3cb4-4a77-b0a5-8f3db9d6b9a",
+          "roomId": "2b817f4a-3cb4-4a77-b0a5-8f3dbd6b9a",
           "roomNo": 402,
           "reservationRate": 50
         },
         {
-          "roomId": "c352520-19a0-477e-b9eb-c1e32d42b8b9",
+          "roomId": "c35220-19a0-477e-b9eb-c1e32d42b8b9",
           "roomNo": 403,
           "reservationRate": 30
         },
         {
-          "roomId": "2b174a-3cb4-4a77-b0a5-78f3db9d6b9b",
+          "roomId": "2b174a-3c4-4a77-b0a5-78f3db9d6b9b",
           "roomNo": 404,
           "reservationRate": 10
         },
         {
-          "roomId": "2b817f4a-3cb4-4a7-b0a5-783dbd6b9a",
+          "roomId": "2b817f4a-3cb4-4a7-b0a5-3dbd6b9a",
           "roomNo": 401,
           "reservationRate": 30
         },
         {
-          "roomId": "f1f8cb5c-1580-49c5-8502-412b75942",
+          "roomId": "f1f8cb5c-1580-49c5-8502-2b75942",
           "roomNo": 402,
           "reservationRate": 50
         },
         {
-          "roomId": "c3525220-19a0-47e-b9eb-c1ed42b8b9",
+          "roomId": "c3525220-a0-47e-b9eb-c1ed42b8b9",
           "roomNo": 403,
           "reservationRate": 30
         },
         {
-          "roomId": "2b817f4a-3cb4-77-b0a5-78f3db96b9b",
+          "roomId": "2b817f4a-3cb4-77-b05-78f3db96b9b",
           "roomNo": 404,
           "reservationRate": 10
         },
         {
-          "roomId": "2b817f4a-34-4a77-b0a5-7f3db9d6b9a",
+          "roomId": "2b817f4a-3-4a77-b0a5-7f3db9d6b9a",
           "roomNo": 401,
           "reservationRate": 30
         },
         {
-          "roomId": "f1f8cb5c-1580-45-8502-412b75944d22",
+          "roomId": "f1fb5c-1580-45-8502-412b75944d22",
           "roomNo": 402,
           "reservationRate": 50
         }
@@ -169,7 +169,7 @@
       "buildingName": "기계관",
       "roomNo": 401,
       "roomImageUrl": "http://[도메인 명]/room-images/N3-401.jpeg",
-      "reservedTime": "9,10,11"
+      "reservedTimes": "9,10,11"
     }
   ],
   "users": [
@@ -183,6 +183,65 @@
       "id": "db62",
       "studentId": "test1",
       "password": "1111"
+    }
+  ],
+  "reservation": {
+    "reserveId": "3b0303e6-162b-4e69-8088-732d97c8c9c1"
+  },
+  "reservations": [
+    {
+      "reserveId": 1,
+      "reserverId": "test1",
+      "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9a",
+      "usageTime": "12,13,14"
+    },
+    {
+      "reserveId": null,
+      "reserverId": "test1",
+      "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9a",
+      "usageTime": "12,13,14"
+    },
+    {
+      "reserveId": null,
+      "reserverId": "test1",
+      "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9a",
+      "usageTime": "12,13,14"
+    },
+    {
+      "reserveId": 1,
+      "reserverId": "test1",
+      "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9a",
+      "usageTime": "12,13,14"
+    },
+    {
+      "reserveId": 1,
+      "reserverId": "test1",
+      "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9a",
+      "usageTime": "13,12,14"
+    },
+    {
+      "reserveId": 1,
+      "reserverId": "test1",
+      "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9a",
+      "usageTime": "12,13,14"
+    },
+    {
+      "reserveId": 1,
+      "reserverId": "test1",
+      "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9a",
+      "usageTime": "13,12,14"
+    },
+    {
+      "reserveId": 1,
+      "reserverId": "test1",
+      "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9a",
+      "usageTime": "12,15,14"
+    },
+    {
+      "reserveId": 1,
+      "reserverId": "test1",
+      "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9a",
+      "usageTime": "12,13,14"
     }
   ]
 }

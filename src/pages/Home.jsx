@@ -8,11 +8,9 @@ import BottomSheetContent from "../components/BottomSheetContent.jsx";
 import {useEffect, useState} from "react";
 import LogoutButton from "../components/LogoutButton.jsx";
 import {fetchBoardData, updateBoardData} from "../feature/apis/homeApi.js";
-import store from "../app/store.js";
 
 
 const Home = () => {
-    // const accessToken = store.getState().auth.accessToken; // 액세스 토큰 가져오기
     const {isSheetOpen, openSheet, closeSheet} = useBottomSheet();
     const [currentPage, setCurrentPage] = useState(0);
     const buildingsPerPage = 4;
@@ -33,8 +31,8 @@ const Home = () => {
                 const {roomList, buildingLocation} = buildingAndRoomList[0];
                 setData({
                     otherBuildingList,
-                    roomList: roomList,
-                    buildingLocation: buildingLocation,
+                    roomList,
+                    buildingLocation,
                     reservationStatus: reservationInfo.reservationStatus,
                     reservationInfo
                 });
@@ -97,27 +95,41 @@ const Home = () => {
         return data.roomList.map((room) => {
             let bgColor;
             let barColor;
-            if (0 < room.reservationRate && room.reservationRate <= 20) {bgColor = "#C1C7F3FF"; barColor= "#848cda";}
-            else if (room.reservationRate < 50) {bgColor = '#8b97f6'; barColor= '#4e5fc1';}
-            else if (room.reservationRate < 80) {bgColor = '#4e5fc1'; barColor= '#2c3878';}
-            else { bgColor = '#2c3878'; barColor= '#161d42';}
+            if (0 < room.reservationRate && room.reservationRate <= 20) {
+                bgColor = "#C1C7F3FF";
+                barColor = "#848cda";
+            } else if (room.reservationRate < 50) {
+                bgColor = '#8b97f6';
+                barColor = '#4e5fc1';
+            } else if (room.reservationRate < 80) {
+                bgColor = '#4e5fc1';
+                barColor = '#2c3878';
+            } else {
+                bgColor = '#2c3878';
+                barColor = '#161d42';
+            }
 
             return (
-                    <div key={room.roomId} className="select-box-items" style={{backgroundColor: bgColor}}
-                       onClick={() => useHandleMove(room.roomId)}>
-                        <p className="bar" style={{backgroundColor: barColor}}></p>
-                        <h2>{room.roomNo} </h2>
-                        예약률 <br/>
+                <div key={room.roomId} className="select-box-items" style={{backgroundColor: bgColor}}
+                     onClick={() => useHandleMove(room.roomId)}>
+                    <p className="bar" style={{backgroundColor: barColor}}></p>
+                    <div style={{fontSize: '27px', color: "#393947"}}>{room.roomNo} </div>
+                    <div style={{fontSize: '20px'}}>예약률<br/>
                         {room.reservationRate}%
                     </div>
+                </div>
             );
         });
     };
 
     return (
         <div className="Home">
+            <div className="logout">
+                <LogoutButton/>
+            </div>
             <div className="s">
                 <b>Please choose a place!!</b>
+
             </div>
             <div className="menu">
                 <div className="arrow1"
@@ -131,13 +143,10 @@ const Home = () => {
             </div>
             <div className="select-box">
                 {renderRoomList()}
-                <div className="logout">
-                    <LogoutButton/>
-                </div>
             </div>
             <div className="key" onClick={openSheet}>
-            <p className='key1'></p>
-                <img src={keyImage} alt="key" className='key_image'/>
+                <p className='key1' style={{backgroundColor: data.reservationStatus ? '#6185E2' : '#C86661'}}></p>
+                <img src={keyImage} alt="key" className="key_image"/>
             </div>
             {data.reservationStatus &&
                 <BottomSheet open={isSheetOpen} onDismiss={closeSheet}>

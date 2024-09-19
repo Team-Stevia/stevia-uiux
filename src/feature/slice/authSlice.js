@@ -17,6 +17,7 @@ const initialState = {
     accessToken: null,
     status: 'idle',
     error: null,
+    reservedId: null,
 }
 
 const authSlice = createSlice({
@@ -29,6 +30,10 @@ const authSlice = createSlice({
         },
         setAccessToken: (state, action) => {
             state.accessToken = action.payload;
+            state.reservedId = null;
+        },
+        setReservedId: (state, action) => {
+            state.reservedId = action.payload;
         }
     },
     extraReducers: (builder) => {
@@ -49,4 +54,4 @@ const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
-export const {logout, setAccessToken} = authSlice.actions;
+export const {logout, setAccessToken, setReservedId} = authSlice.actions;

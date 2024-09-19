@@ -1,16 +1,42 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import '../styles/BottomSheetContent.css';
 import character1 from '../assets/character1.png';
 import character2 from '../assets/character2.png';
 import locationIcon from '../assets/location.png';
 import ThrowKey from '../assets/ThrowKey.png';
 import initialReservation from '../../src/utils/ReservationTime.js';
+import {useSelector} from "react-redux";
+import {fetchKey, updateKey} from "../feature/apis/keyApi.js";
+// import {fetchKey, updateKey, deleteKey} from '../feature/apis/keyApi.js';
 
 const BottomSheetContent = ({closeSheet, reservationInfo}) => {
+
+    const reserveId = useSelector((state) => state.reservedId.id);
+    console.log(reserveId);
+    // const [ImageStatus, SetImageStatus] = useState(false);
     const [keyStatus, setKeyStatus] = useState(true);
 
-    const onChangeKeyStatus = () => {
-        setKeyStatus(!keyStatus);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try{
+                const res = await fetchKey(reserveId);
+                console.log(res);
+                setKeyStatus(res);
+            }catch(error){
+                console.error("fetchData key error",  error);
+            }
+        }
+        fetchData();
+    }, [reserveId]);
+
+    const onChangeKeyStatus = async () => {
+        try{
+            const res = await updateKey(reserveId);
+            setKeyStatus(res);
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     const splitTimes = reservationInfo.usageTime.split(',').map(Number);
@@ -38,7 +64,7 @@ const BottomSheetContent = ({closeSheet, reservationInfo}) => {
                 </div>
                 <div className="reservation-info1">
                     <div className="location1">
-                        <img src={locationIcon} alt="Location" className="location-icon"/> <p>N5 - 506</p>
+                        <img src={locationIcon} alt="Location" className="location-icon"/> <p>{reservationInfo.buildingLocation} - {reservationInfo.roomNo}</p>
                     </div>
                     <div className="reservation-time1">
                         <p>{new Date().getFullYear()}.{new Date().getMonth() + 1}.{new Date().getDate()}</p>

@@ -196,46 +196,10 @@
       "usageTime": "12,13,14"
     },
     {
-      "reserveId": null,
-      "reserverId": "test1",
-      "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9a",
-      "usageTime": "12,13,14"
-    },
-    {
-      "reserveId": null,
-      "reserverId": "test1",
-      "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9a",
-      "usageTime": "12,13,14"
-    },
-    {
       "reserveId": 1,
       "reserverId": "test1",
       "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9a",
-      "usageTime": "12,13,14"
-    },
-    {
-      "reserveId": 1,
-      "reserverId": "test1",
-      "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9a",
-      "usageTime": "13,12,14"
-    },
-    {
-      "reserveId": 1,
-      "reserverId": "test1",
-      "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9a",
-      "usageTime": "12,13,14"
-    },
-    {
-      "reserveId": 1,
-      "reserverId": "test1",
-      "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9a",
-      "usageTime": "13,12,14"
-    },
-    {
-      "reserveId": 1,
-      "reserverId": "test1",
-      "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9a",
-      "usageTime": "12,15,14"
+      "usageTime": "12,14"
     },
     {
       "reserveId": 1,

@@ -6,48 +6,63 @@ import locationIcon from '../assets/location.png';
 import ThrowKey from '../assets/ThrowKey.png';
 import initialReservation from '../../src/utils/ReservationTime.js';
 import {useSelector} from "react-redux";
-import {fetchKey, updateKey} from "../feature/apis/keyApi.js";
-// import {fetchKey, updateKey, deleteKey} from '../feature/apis/keyApi.js';
+import {deleteKey, fetchKey, updateKey} from "../feature/apis/keyApi.js";
+import {useNavigate} from "react-router-dom";
 
 const BottomSheetContent = ({closeSheet, reservationInfo}) => {
-
-    const reserveId = useSelector((state) => state.reservedId.id);
-    console.log(reserveId);
-    // const [ImageStatus, SetImageStatus] = useState(false);
+    const reserveId = useSelector((state) => state.reserveId.reserveId);
     const [keyStatus, setKeyStatus] = useState(true);
 
-
+    /**
+     * 키 상태 조회 api 요청
+     */
     useEffect(() => {
         const fetchData = async () => {
-            try{
-                const res = await fetchKey(reserveId);
-                console.log(res);
-                setKeyStatus(res);
-            }catch(error){
-                console.error("fetchData key error",  error);
+            if (!reserveId) {
+                console.warn("reserveId is null or undefined");
+                return; // fetchData를 수행하지 않음
             }
-        }
+            try {
+                const res = await fetchKey(reserveId);
+                console.log(res.image_status);
+                setKeyStatus(res.image_status);
+            } catch (error) {
+                console.error("fetchData key error", error);
+            }
+        };
         fetchData();
-    }, [reserveId]);
+    }, []);
 
+    /**
+     * 키 상태 업데이트 api 요청
+     * 키 true일 경우 updateApi
+     * 키 false일 경우 deleteApi
+     */
     const onChangeKeyStatus = async () => {
-        try{
-            const res = await updateKey(reserveId);
-            setKeyStatus(res);
+        if (!reserveId) {
+            console.warn("reserveId is null or undefined");
+            return;
+        }
+        try {
+            if (keyStatus) {
+                const res = await updateKey(reserveId);
+                setKeyStatus(res.image_status);
+                setKeyStatus(false);
+            } else {
+                const res = await deleteKey(reserveId);
+                setKeyStatus(res);
+                setKeyStatus(true);
+                closeSheet();
+            }
         } catch (error) {
             console.log(error);
         }
     }
 
     const splitTimes = reservationInfo.usageTime.split(',').map(Number);
-
-    console.log(splitTimes);
-
     const selectedTimes = initialReservation
         .filter(reservation => splitTimes.includes(reservation.id))
         .map(reservation => reservation.time);
-
-    console.log(selectedTimes);
 
 
     return (
@@ -64,7 +79,8 @@ const BottomSheetContent = ({closeSheet, reservationInfo}) => {
                 </div>
                 <div className="reservation-info1">
                     <div className="location1">
-                        <img src={locationIcon} alt="Location" className="location-icon"/> <p>{reservationInfo.buildingLocation} - {reservationInfo.roomNo}</p>
+                        <img src={locationIcon} alt="Location" className="location-icon"/>
+                        <p>{reservationInfo.buildingLocation} - {reservationInfo.roomNo}</p>
                     </div>
                     <div className="reservation-time1">
                         <p>{new Date().getFullYear()}.{new Date().getMonth() + 1}.{new Date().getDate()}</p>

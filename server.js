@@ -12,9 +12,9 @@ server.use(jsonServer.bodyParser);
 
 server.post('/users', (req, res) => {
     const {studentId, password} = req.body;
-    console.log(req.body);
+    // console.log(req.body);
     const user = router.db.get('users').find({studentId, password}).value();
-    console.log(user);
+    // console.log(user);
 
     if (user) {
         // 로그인 성공 시 JWT 토큰 생성
@@ -34,7 +34,7 @@ server.post('/users', (req, res) => {
 server.get('/boards/:buildingLocation', (req, res) => {
     const {buildingLocation} = req.params;
     const rawToken = req.headers['authorization']; // rawToken: Bearer amsdofjasodfqomajdofas
-    console.log("인증 토큰" + rawToken);
+    // console.log("인증 토큰" + rawToken);
 
     if (!rawToken) {
         return res.status(401).json({error: 'Access token is missing'});
@@ -46,22 +46,22 @@ server.get('/boards/:buildingLocation', (req, res) => {
 
     if (location) {
         res.json(location.roomList);
-        console.log(location.roomList);
+        // console.log(location.roomList);
     } else {
         console.error('Location not found');
     }
 });
 
 server.post('/boards/reservation/:roomId', (req, res) => {
-    console.log('Request Headers:', req.headers);
-    console.log('Authorization Header:', req.headers['authorization']);
+    // console.log('Request Headers:', req.headers);
+    // console.log('Authorization Header:', req.headers['authorization']);
 
 
     const rawToken = req.headers['authorization'];
     console.log("인증 토큰2" + rawToken);
 
     if (!rawToken) {
-        return res.status(401).json({error: 'Access 아이씨ㅣㅣ이en is missing'});
+        return res.status(401).json({error: 'Access is missing'});
     }
 
     try {
@@ -74,9 +74,9 @@ server.post('/boards/reservation/:roomId', (req, res) => {
         const {roomId} = req.params;
         const {usageTime} = req.body;
 
-        console.log("post 토큰:" + accessToken);
-        console.log(usageTime);
-        console.log(roomId);
+        // console.log("post 토큰:" + accessToken);
+        // console.log(usageTime);
+        // console.log(roomId);
 
         if (!usageTime) {
             return res.status(400).json({error: 'Usage time is required'})
@@ -85,7 +85,7 @@ server.post('/boards/reservation/:roomId', (req, res) => {
         const lastReservation = router.db.get('reservations').sortBy('reserveId').last();
         const newReservedId = lastReservation && lastReservation.reserveId ? lastReservation.reserveId + 1 : 1;
         // const newReservedId = lastReservation ? lastReservation.reserveId + 1 : 1;
-        console.log(newReservedId);
+        // console.log(newReservedId);
 
         const newReservation = {
             reserveId: newReservedId,
@@ -95,13 +95,25 @@ server.post('/boards/reservation/:roomId', (req, res) => {
         }
 
         router.db.get('reservations').push(newReservation).write();
-        console.log("이거야 이거" + newReservation.reserveId)
         res.json({reserveId: newReservation.reserveId});
 
     } catch (err) {
         return res.status(401).json({error: 'Invalid access token'});
     }
-})
+});
+
+server.get('/keys/:reserveId', (req, res) => {
+    const {reserveId} = req.params;
+
+    if (reserveId) {
+        const response = {
+            image_status: false
+        }
+        res.json(response);
+    } else {
+        res.status(400).json({error: 'reserveId is missing'});
+    }
+});
 
 
 server.use(router);

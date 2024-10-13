@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 const initialState = {
-    id: null,
+    reserveId: null,
 }
 
 const reserveIdSlice = createSlice({
@@ -9,10 +9,10 @@ const reserveIdSlice = createSlice({
         initialState,
         reducers: {
             setReserveId: (state, action) => {
-                state.id = action.payload;
+                state.reserveId = action.payload;
             },
             clearReserveId(state) {
-                state.id = null;
+                state.reserveId = null;
             },
         },
     });

@@ -64,6 +64,11 @@
     font-size: 1.2rem;
 }
 
+.done-button {
+    width: 70%;
+    height: 70%;
+}
+
 .reservation-time {
     background-color: rgba(192, 200, 248, 1);
     display: flex;
@@ -74,20 +79,23 @@
     height: 70vh;
 }
 
+
+.timeSlot:hover{
+    background-color: #202963;
+}
+
 .reserved {
-    background-color: #fad5d5;
+    background-color: #4e5fc1;
     margin: 10px 0;
     padding: 5px;
     border-radius: 50px;
     text-align: center;
 }
 
-.timeSlot:hover{
-    background-color: #983131;
-}
-
 .no-reserved {
     background-color: #d9d9d9;
+    /*background-color: #983131;*/
+
     margin: 10px 0;
     padding: 5px;
     border-radius: 50px;
@@ -99,6 +107,3 @@
     width: 17rem;
     border-radius: 30%;
 }
-
-
-

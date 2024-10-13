@@ -3,63 +3,73 @@ import location from "../assets/location.png";
 import done from "../assets/done.png";
 import "../styles/Reservation.css"
 import {useEffect, useState} from "react";
-import {useNavigate} from "react-router-dom";
-import axios from "axios";
+import {useNavigate, useParams} from "react-router-dom";
+import initialReservation from "../../src/utils/ReservationTime.js";
+import {fetchReserveData, postReserveData} from "../feature/apis/reservationApi.js";
+import {useDispatch, useSelector} from "react-redux";
+import {setReserveId} from "../feature/slice/reserveIdSlice.js";
 
 
-const initialReservation = [
-    {id: 9, time: "09:00 ~ 10:00", reserved: true},
-    {id: 10, time: "10:00 ~ 11:00", reserved: true},
-    {id: 11, time: "11:00 ~ 12:00", reserved: true},
-    {id: 12, time: "12:00 ~ 13:00", reserved: true},
-    {id: 13, time: "13:00 ~ 14:00", reserved: true},
-    {id: 14, time: "14:00 ~ 15:00", reserved: true},
-    {id: 15, time: "15:00 ~ 16:00", reserved: true},
-    {id: 16, time: "17:00 ~ 18:00", reserved: true},
-];
-
-
-const Reservation = ({roomId}) => {
-    const [reservation, setReservation] = useState(initialReservation);
-    const [roomNo, setRoomNo] = useState("");
-    const [roomImageUrl, setRoomImageUrl] = useState("");
-    const [buildingLocation, setBuildingLocation]= useState("");
-    const [buildingName, setBuildingName] = useState("");
+const Reservation = () => {
     const navigate = useNavigate();
-
+    const {roomId} = useParams();
+    const [reservation, setReservation] = useState(initialReservation);
+    const [splitTimes, setSplitTimes] = useState([]);
+    const [selectId, setSelectId] = useState("");
+    const MAX_SELECT_COUNT = 3;
+    const [data, setData] = useState({
+        roomNo: "",
+        reservedTimes: "",
+        roomImageUrl: "",
+        buildingLocation: "",
+        buildingName: ""
+    })
+    const dispatch = useDispatch();
+    // const reserveId = useSelector((state) => state.reservedId.id);
 
 
     const useHandleMove = () => {
         navigate("/");
     }
 
+    const HandlePost = async () => {
+        const usageTime = selectId.join(',');
+        try {
+            const response = await postReserveData(roomId, usageTime);
+            const reserveId = response.reserveId;
+            // reserveId 값 redux에 저장하기
+            dispatch(setReserveId(reserveId));
+
+
+            // console.log("reserve-id: " +reserveId );
+        } catch (error) {
+            console.log('handlePost error', error);
+        }
+        navigate("/");
+    }
+
     useEffect(() => {
         const fetchData = async () => {
-
             if (!roomId) {
                 console.error("roomId is not defined");
                 return;
             }
 
             try {
-                const response = await axios.get(`http://localhost:3003/timetables/${roomId}`); // 적절한 API 호출로 변경하세요
-                console.log(response);
-
-                const reservedTimes = response.data.reservedTime;
-                const roomImageUrl = response.data.roomImageUrl;
-                const roomNo = response.data.roomNo;
-                const building = response.data.buildingLocation;
-                const buildingName = response.data.buildingName;
-
-
-
-                console.log(reservedTimes, roomImageUrl);
-
+                const res = await fetchReserveData(roomId);
+                // console.log(res);
+                const {reservedTimes, roomImageUrl, roomNo, buildingLocation, buildingName} = res;
+                // console.log(reservedTimes);
+                // console.log(buildingLocation);
+                setData({
+                    roomNo,
+                    reservedTimes,
+                    roomImageUrl,
+                    buildingLocation,
+                    buildingName,
+                });
 
                 const splitTimes = reservedTimes.split(',').map(Number);
-
-                console.log(splitTimes);
-
                 const updatedReservations = reservation.map(reservation => {
                     if (splitTimes.includes(reservation.id)) {
                         return {...reservation, reserved: false};
@@ -69,12 +79,7 @@ const Reservation = ({roomId}) => {
                 });
 
                 setReservation(updatedReservations);
-                setRoomNo(roomNo);
-                setRoomImageUrl(roomImageUrl);
-                setBuildingLocation(building);
-                setBuildingName(buildingName);
-
-
+                setSplitTimes(splitTimes);
 
             } catch (err) {
                 console.log(err);
@@ -84,11 +89,29 @@ const Reservation = ({roomId}) => {
     }, [roomId]);
 
 
-    const onUpdate = (targetId) => {
+    const onUpdate = async (targetId) => {
+        if (splitTimes.includes(targetId)) {
+            return; // splitTimes에 포함된 ID는 클릭할 수 없음
+        }
         const updatedReservations = reservation.map((slot) =>
-            slot.id === targetId ? { ...slot, reserved: !slot.reserved } : slot
+            slot.id === targetId ? {...slot, reserved: !slot.reserved} : slot
         );
         setReservation(updatedReservations);
+
+        setSelectId(prev => {
+            const currentCount = prev.length;
+            if (currentCount >= MAX_SELECT_COUNT) {
+                alert(`최대 ${MAX_SELECT_COUNT}시간까지만 선택할 수 있습니다.`);
+                return prev;
+            }
+
+            if (prev.includes(targetId)) {
+                return prev.filter(id => id !== targetId);
+            } else {
+                return [...prev, targetId];
+            }
+        });
+        console.log(selectId);
     };
 
 
@@ -98,8 +121,8 @@ const Reservation = ({roomId}) => {
                 <div className="arrow" onClick={useHandleMove}></div>
                 <div className="reservation-board">
                     <div className="reservation-location">
-                            <img className="locationImg" src={location} alt="location"/>
-                            <p>한밭대학교 유성덕명캠퍼스 {buildingName}<br/>{buildingLocation} {roomNo}</p>
+                        <img className="locationImg" src={location} alt="location"/>
+                        <p>한밭대학교 유성덕명캠퍼스 {data.buildingName}<br/>{data.buildingLocation} {data.roomNo}</p>
                     </div>
 
                     <div className="reservation-time">
@@ -107,11 +130,12 @@ const Reservation = ({roomId}) => {
                             <div
                                 className="date">Today<br/>{new Date().getFullYear()}.{new Date().getMonth()}.{new Date().getDate()}
                             </div>
-                            <img className="done-button" src={done} alt="done" onClick={useHandleMove}/>
+                            <img className="done-button" src={done} alt="done" onClick={HandlePost}/>
                         </div>
                         <div className="reservation-time-slot">
                             {reservation.map((slot, id) => (
-                                <div key={id} className={`timeSlot ${slot.reserved ? 'reserved' : 'no-reserved'}`} onClick={() => onUpdate(slot.id)}>
+                                <div key={id} className={`timeSlot ${slot.reserved ? 'reserved' : 'no-reserved'}`}
+                                     onClick={() => onUpdate(slot.id)}>
                                     {slot.time}
                                 </div>
                             ))}

@@ -53,12 +53,9 @@ const Login = () => {
                     <p>Forgot Password?</p>
                 </div>
                 <button type="button" onClick={handleOnclick}>Login</button>
-                {authStatus === 'loading' && <p>Loading...</p>}
-                {/*{authStatus === 'failed' && <p>Error: {authError}</p>}*/}
             </div>
         </div>
     );
 };
 
-export default Login;ㅍ
-        <div className="background-img" style={{ backgroundImage: `url(${background})` }}>
+export default Login;

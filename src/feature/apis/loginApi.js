@@ -1,9 +1,11 @@
-import axios from 'axios';
 import {useCookies} from 'react-cookie';
+import Axios from "axios";
 
-const apiClient = axios.create({
-    baseURL: 'http://localhost:3003',
-});
+
+const apiClient = Axios.create({
+        baseURL: 'http://localhost:3003'
+    }
+);
 
 //로그인 요청
 export const loginUser = async ({studentId, password}) => {

@@ -7,10 +7,16 @@ const apiClient = Axios.create({
     }
 );
 
-//로그인 요청
+/**
+ * 사용자의 studentId와 password를 이용하여 로그인 요청을 보내는 함수
+ * @POST /users
+ * @param {Object} params - 로그인 정보 객체
+ * @param {string} params.studentId - 학생 ID
+ * @param {string} params.password - 비밀번호
+ * @return {Object} AccessToken,RefreshToken
+ */
 export const loginUser = async ({studentId, password}) => {
     try {
-        //테스트용 json-server 사용시 /api 경로 제거
         const response = await apiClient.post('/users', {studentId, password});
         return response.data;
     } catch (error) {
@@ -18,7 +24,11 @@ export const loginUser = async ({studentId, password}) => {
     }
 };
 
-//액세스 토큰 재발급
+/**
+ * 저장된 refreshToken을 이용하여 엑세스 토큰 재발급 하는 함수
+ * @POST /auth/token/access
+ * @return new accessToken
+ */
 export const refreshAccessToken = async dispatch => {
     try {
         const [cookies] = useCookies(['refreshToken']);

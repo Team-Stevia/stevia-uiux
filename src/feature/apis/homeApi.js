@@ -1,5 +1,10 @@
 import apiClient from "./apiClient.js";
 
+/**
+ * 게시판 데이터를 가져오는 함수
+ * @GET /boards
+ * @return {Object} buildingAndRoomList,otherBuildingList,reservationInfo
+ */
 export const fetchBoardData = async () => {
     try {
         const response = await apiClient.get("/boards");
@@ -10,6 +15,12 @@ export const fetchBoardData = async () => {
     }
 }
 
+/**
+ * 특정 빌딩에 대한 게시판 데이터를 업데이트(또는 가져오기)하는 함수
+ * @GET /boards/{buildingLocation}
+ * @param {string} buildingLocation - 빌딩 위치 정보
+ * @return {Object} 해당 빌딩 roomList
+ */
 export const updateBoardData = async (buildingLocation) => {
     try {
         const response = await apiClient.get(`/boards/${buildingLocation}`);
@@ -19,18 +30,3 @@ export const updateBoardData = async (buildingLocation) => {
         throw error;
     }
 }
-
-// export const fetchKey = async () => {
-//     try {
-//         const response = await apiClient.get(`/keys`);
-//         return response.data;
-//     }
-// }
-//
-// export const updatedKey = async (keyStatus) => {
-//     try {
-//         const response = await apiClient.patch(`/keys`);
-//     } catch {
-//         console.error('Failed to update board', error);
-//     }
-// }

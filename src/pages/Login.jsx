@@ -11,7 +11,7 @@ import { login } from "../feature/slice/authSlice.js";
 const Login = () => {
     const [studentId, setStudentId] = useState("");
     const [password, setPassword] = useState("");
-    const [cookie, setCookie] = useCookies(['refreshToken']);
+    const [cookies, setCookies] = useCookies(['refreshToken']);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -22,7 +22,7 @@ const Login = () => {
     const handleOnclick = async () => {
         try {
             const { payload } = await dispatch(login({ studentId, password }));
-            setCookie('refreshToken', payload.refreshToken, { path: '/' });
+            setCookies('refreshToken', payload.refreshToken, { path: '/' });
             navigate('/');
         } catch (error) {
             console.error('Login failed', error);
@@ -38,6 +38,7 @@ const Login = () => {
                         type="text"
                         id="student_id"
                         name="student_id"
+                        placeholder="Student ID"
                         value={studentId}
                         onChange={(e) => setStudentId(e.target.value)} />
                 </div>
@@ -46,13 +47,14 @@ const Login = () => {
                         type="password"
                         id="password"
                         name="password"
+                        placeholder="Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)} />
                 </div>
                 <div className="find-password">
                     <p>Forgot Password?</p>
                 </div>
-                <button type="button" onClick={handleOnclick}>Login</button>
+                <button type="button" onClick={handleOnclick} disabled={authStatus === 'loading'}> {authStatus === 'loading' ? 'Logging in...' : 'Login'} </button>
             </div>
         </div>
     );

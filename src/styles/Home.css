@@ -1,15 +1,15 @@
 .Home {
     position: relative;
     width: 100%;
-    height: 800px;
+    height: 1000px;
     padding-top: 6vh;
     background-color: #e1e5ff;
 }
 
 .logout {
     position: absolute;
-    top: 20px; /* 상단에서 20px 내려오도록 설정 */
-    right: 20px; /* 오른쪽 끝에서 20px 안쪽으로 설정 */
+    top: 20px;
+    right: 20px;
     width: 60px;
     height: 60px;
     background-color: #ffffff;

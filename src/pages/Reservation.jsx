@@ -58,7 +58,7 @@ const Reservation = () => {
                 setData({
                     roomNo,
                     reservedTimes,
-                    roomImageUrl: roomImageUrl ? `https://ibb.co/${roomImageUrl}` : "",
+                    roomImageUrl: roomImageUrl ? `http://127.0.0.1:3001/${roomImageUrl}` : "",
                     buildingLocation,
                     buildingName,
                 });

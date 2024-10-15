@@ -6,7 +6,7 @@ import {useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import initialReservation from "../../src/utils/ReservationTime.js";
 import {fetchReserveData, postReserveData} from "../feature/apis/reservationApi.js";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {setReserveId} from "../feature/slice/reserveIdSlice.js";
 
 
@@ -25,8 +25,6 @@ const Reservation = () => {
         buildingName: ""
     })
     const dispatch = useDispatch();
-    // const reserveId = useSelector((state) => state.reservedId.id);
-
 
     const useHandleMove = () => {
         navigate("/");
@@ -41,7 +39,6 @@ const Reservation = () => {
             dispatch(setReserveId(reserveId));
 
 
-            // console.log("reserve-id: " +reserveId );
         } catch (error) {
             console.log('handlePost error', error);
         }
@@ -57,14 +54,11 @@ const Reservation = () => {
 
             try {
                 const res = await fetchReserveData(roomId);
-                // console.log(res);
                 const {reservedTimes, roomImageUrl, roomNo, buildingLocation, buildingName} = res;
-                // console.log(reservedTimes);
-                // console.log(buildingLocation);
                 setData({
                     roomNo,
                     reservedTimes,
-                    roomImageUrl,
+                    roomImageUrl: roomImageUrl ? `https://ibb.co/${roomImageUrl}` : "",
                     buildingLocation,
                     buildingName,
                 });
@@ -111,13 +105,12 @@ const Reservation = () => {
                 return [...prev, targetId];
             }
         });
-        console.log(selectId);
     };
 
 
     return (
         <div className="reservation">
-            <div className="roomImg" alt="room" style={{backgroundImage: `url(${roomImg || roomImg})`}}>
+            <div className="roomImg" alt="room" style={{backgroundImage: `url(${data.roomImageUrl || roomImg})`}}>
                 <div className="arrow" onClick={useHandleMove}></div>
                 <div className="reservation-board">
                     <div className="reservation-location">

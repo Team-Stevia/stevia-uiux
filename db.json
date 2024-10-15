@@ -168,7 +168,7 @@
       "buildingLocation": "N3",
       "buildingName": "기계관",
       "roomNo": 401,
-      "roomImageUrl": "http://[도메인 명]/room-images/N3-401.jpeg",
+      "roomImageUrl": "room-images/N3-401.jpeg",
       "reservedTimes": "9,10,11"
     }
   ],
@@ -206,6 +206,18 @@
       "reserverId": "test1",
       "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9a",
       "usageTime": "12,13,14"
+    },
+    {
+      "reserveId": 1,
+      "reserverId": "test1",
+      "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9a",
+      "usageTime": "12,13,14"
+    },
+    {
+      "reserveId": 1,
+      "reserverId": "test1",
+      "roomId": "2b817f4a-3cb4-4a77-b0a5-78f3db9d6b9a",
+      "usageTime": "12"
     }
   ]
 }

@@ -7,7 +7,10 @@ const apiClient = Axios.create({
     baseURL: 'http://localhost:3003',
 });
 
-// 요청 인터셉터 설정
+/**
+ * 요청 인터셉터 설정
+ * 요청 보내기 전에 엑세스 토큰을 확인하고 설정하는 인터셉터
+ */
 apiClient.interceptors.request.use(
     async (config) => {
         let accessToken = store.getState().auth.accessToken;

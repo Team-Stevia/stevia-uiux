@@ -7,7 +7,6 @@ import ThrowKey from '../assets/ThrowKey.png';
 import initialReservation from '../../src/utils/ReservationTime.js';
 import {useSelector} from "react-redux";
 import {deleteKey, fetchKey, updateKey} from "../feature/apis/keyApi.js";
-import {useNavigate} from "react-router-dom";
 
 const BottomSheetContent = ({closeSheet, reservationInfo}) => {
     const reserveId = useSelector((state) => state.reserveId.reserveId);
@@ -24,7 +23,6 @@ const BottomSheetContent = ({closeSheet, reservationInfo}) => {
             }
             try {
                 const res = await fetchKey(reserveId);
-                console.log(res.image_status);
                 setKeyStatus(res.image_status);
             } catch (error) {
                 console.error("fetchData key error", error);

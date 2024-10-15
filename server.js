@@ -107,7 +107,7 @@ server.get('/keys/:reserveId', (req, res) => {
 
     if (reserveId) {
         const response = {
-            image_status: false
+            image_status: true
         }
         res.json(response);
     } else {

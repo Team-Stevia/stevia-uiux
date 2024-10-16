@@ -4,7 +4,7 @@ import {refreshAccessToken} from "./loginApi.js";
 
 // Axios 인스턴스 생성
 const apiClient = Axios.create({
-    baseURL: 'http://127.0.0.1:3001',
+    baseURL: 'http://192.168.30.63:3001',
 });
 
 /**

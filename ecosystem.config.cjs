@@ -1,7 +1,8 @@
 module.exports = {
     apps: [{
         name: "uiux",
-        script: "main.jsx",
+        script: "pnpm",
+	args: "run start",
         interpreter: "/home/wisoft/.asdf/shims/pnpm",
     }],
 }

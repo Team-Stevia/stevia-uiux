@@ -16,11 +16,11 @@ const Home = () => {
     const buildingsPerPage = 4;
     const navigate = useNavigate();
     const [data, setData] = useState({
-        otherBuildingList: [],
+        buildingLocation: "",
         roomList: [],
-        buildingLocation: [],
-        reservationStatus: false,
-        reservationInfo: {}
+        otherBuildingList: [],
+        reservationInfo: {},
+        reservationStatus: false
     });
 
     useEffect(() => {
@@ -28,13 +28,15 @@ const Home = () => {
             try {
                 const res = await fetchBoardData();
                 const {buildingAndRoomList, otherBuildingList, reservationInfo} = res;
-                const {roomList, buildingLocation} = buildingAndRoomList[0];
+                const roomList = buildingAndRoomList.roomList;
+                const buildingLocation = buildingAndRoomList.buildingLocation;
+                const reservationStatus = reservationInfo.reservationStatus;
                 setData({
-                    otherBuildingList,
-                    roomList,
                     buildingLocation,
-                    reservationStatus: reservationInfo.reservationStatus,
-                    reservationInfo
+                    roomList,
+                    otherBuildingList,
+                    reservationInfo,
+                    reservationStatus
                 });
             } catch (error) {
                 console.error('Error fetching the data:', error);
@@ -55,7 +57,7 @@ const Home = () => {
 
             setData(data => ({
                 ...data,
-                roomList: updatedData.data,
+                roomList: updatedData.roomList,
             }));
         } catch (error) {
             console.error('Error updating building data:', error);
@@ -65,7 +67,7 @@ const Home = () => {
 
     /* buildingLocation 4개씩 렌더링하기 */
     const renderBuildingList = () => {
-        const start = currentPage * buildingsPerPage
+        const start = currentPage * buildingsPerPage;
         const end = start + buildingsPerPage;
         let currentBuildingList = data.otherBuildingList.slice(start, end);
 

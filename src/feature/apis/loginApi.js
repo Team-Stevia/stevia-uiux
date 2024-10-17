@@ -3,32 +3,21 @@ import Axios from "axios";
 
 
 const apiClient = Axios.create({
-        baseURL: 'http://192.168.30.63:3001'
+        baseURL: 'http://localhost:3001/api'
     }
 );
 
-/**
- * 사용자의 studentId와 password를 이용하여 로그인 요청을 보내는 함수
- * @POST /users
- * @param {Object} params - 로그인 정보 객체
- * @param {string} params.studentId - 학생 ID
- * @param {string} params.password - 비밀번호
- * @return {Object} AccessToken,RefreshToken
- */
+// 사용자 로그인
 export const loginUser = async ({studentId, password}) => {
     try {
-        const response = await apiClient.post('/users', {studentId, password});
+        const response = await apiClient.post('/users/signin', {studentId, password});
         return response.data;
     } catch (error) {
         throw new Error('Failed to login');
     }
 };
 
-/**
- * 저장된 refreshToken을 이용하여 엑세스 토큰 재발급 하는 함수
- * @POST /auth/token/access
- * @return new accessToken
- */
+// access Token 재발급
 export const refreshAccessToken = async dispatch => {
     try {
         const [cookies] = useCookies(['refreshToken']);

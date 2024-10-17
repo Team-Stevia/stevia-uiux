@@ -8,14 +8,14 @@ export default defineConfig({
   base: '/stevia',
   server: {
     port: 3000,
-    host: "192.168.30.63",
+    host: "localhost",
     hmr: { 
 	clientPort: 3000,
 	overlay: false 
     }
   },
   build: {
-    rollupOptionis: {
+    rollupOptions: {
       input: {
 	main: resolve(__dirname, 'index.html'),
 	nested: resolve(__dirname, 'nested/index.html')

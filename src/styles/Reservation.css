@@ -84,8 +84,20 @@
     background-color: #202963;
 }
 
-.reserved {
+
+
+.clicked {
+    background-color: #202963;
+    margin: 10px 0;
+    padding: 5px;
+    border-radius: 50px;
+    text-align: center;
+}
+
+.no-clicked{
     background-color: #4e5fc1;
+    /*background-color: #983131;*/
+
     margin: 10px 0;
     padding: 5px;
     border-radius: 50px;
@@ -93,9 +105,17 @@
 }
 
 .no-reserved {
-    background-color: #d9d9d9;
+    /*background-color: #4e5fc1;*/
     /*background-color: #983131;*/
 
+    margin: 10px 0;
+    padding: 5px;
+    border-radius: 50px;
+    text-align: center;
+}
+
+.reserved {
+    background-color: #d9d9d9;
     margin: 10px 0;
     padding: 5px;
     border-radius: 50px;

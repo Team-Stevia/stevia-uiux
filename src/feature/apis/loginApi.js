@@ -3,7 +3,7 @@ import Axios from "axios";
 
 
 const apiClient = Axios.create({
-    baseURL: 'http://task-api.wisoft.io/api',
+    baseURL: 'http://task-api.wisoft.io/stevia/api',
 });
 
 // 사용자 로그인

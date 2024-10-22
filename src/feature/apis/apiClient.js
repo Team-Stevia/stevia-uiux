@@ -4,7 +4,7 @@ import {refreshAccessToken} from "./loginApi.js";
 
 // Axios 인스턴스 생성
 const apiClient = Axios.create({
-    baseURL: 'http://task-api.wisoft.io/stevia/api',
+    baseURL: 'http://task-api.wisoft.io/api',
 });
 
 /**

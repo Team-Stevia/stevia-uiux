@@ -58,7 +58,7 @@ const Reservation = () => {
         setData({
           roomNo,
           reservedTimes,
-          roomImageUrl: roomImageUrl ? `http://localhost:3001/${roomImageUrl}` : "",
+          roomImageUrl: roomImageUrl ? `http://task-api.wisoft.io/stevia/${roomImageUrl}` : "",
           buildingLocation,
           buildingName,
         });

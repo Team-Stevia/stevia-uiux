@@ -5,12 +5,14 @@ import character2 from '../assets/character2.png';
 import locationIcon from '../assets/location.png';
 import ThrowKey from '../assets/ThrowKey.png';
 import initialReservation from '../../src/utils/ReservationTime.js';
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {deleteKey, fetchKey, updateKey} from "../feature/apis/keyApi.js";
+import {clearReserveId} from "../feature/slice/reserveIdSlice.js";
 
 const BottomSheetContent = ({closeSheet, reservationInfo}) => {
     const reserveId = useSelector((state) => state.reserveId.reserveId);
     const [keyStatus, setKeyStatus] = useState(true);
+    const dispatch = useDispatch();
 
     /**
      * 키 상태 조회 api 요청
@@ -45,11 +47,13 @@ const BottomSheetContent = ({closeSheet, reservationInfo}) => {
             if (keyStatus) {
                 const res = await updateKey(reserveId);
                 setKeyStatus(res.image_status);
+                alert(`대여를 완료했습니다.`);
                 setKeyStatus(false);
             } else {
                 const res = await deleteKey(reserveId);
                 setKeyStatus(res);
-                setKeyStatus(true);
+                alert(`반납을 완료했습니다.`);
+                dispatch(clearReserveId());
                 closeSheet();
             }
         } catch (error) {

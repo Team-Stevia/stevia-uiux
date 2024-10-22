@@ -37,7 +37,7 @@ const Reservation = () => {
       const reserveId = response.reserveId;
       // reserveId 값 redux에 저장하기
       dispatch(setReserveId(reserveId));
-
+      alert(`예약을 완료했습니다.`);
 
     } catch (error) {
       console.log('handlePost error', error);

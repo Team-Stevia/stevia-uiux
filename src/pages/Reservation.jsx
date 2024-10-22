@@ -112,7 +112,7 @@ const Reservation = () => {
 
     return (
         <div className="reservation">
-            <div className="roomImg" alt="room" style={{backgroundImage: `url(${data.roomImageUrl || roomImg})`}}>
+            <div className="roomImg" alt="room" style={{backgroundImage: `url(${data.roomImageUrl})`}}>
                 <div className="arrow" onClick={useHandleMove}></div>
                 <div className="reservation-board">
                     <div className="reservation-location">

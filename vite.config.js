@@ -8,7 +8,7 @@ export default defineConfig({
   base: '/stevia',
   server: {
     port: 3000,
-    host: "localhost",
+    host: "192.168.30.63",
     hmr: { 
 	clientPort: 3000,
 	overlay: false 

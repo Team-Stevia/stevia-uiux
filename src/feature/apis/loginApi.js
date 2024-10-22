@@ -3,9 +3,8 @@ import Axios from "axios";
 
 
 const apiClient = Axios.create({
-        baseURL: 'http://192.168.30.63:3001/api'
-    }
-);
+    baseURL: 'http://task-api.wisoft.io/stevia/api',
+});
 
 // 사용자 로그인
 export const loginUser = async ({studentId, password}) => {
